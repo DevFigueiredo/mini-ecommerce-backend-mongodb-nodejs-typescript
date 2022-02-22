@@ -13,7 +13,7 @@ const OrderSchema = new mongoose.Schema(
       blingorderSended: { type: Boolean }
     }]
   },
-  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
+  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, _id: false }
 )
 
 export const OrderModel = mongoose.model<Order>('Order', OrderSchema)

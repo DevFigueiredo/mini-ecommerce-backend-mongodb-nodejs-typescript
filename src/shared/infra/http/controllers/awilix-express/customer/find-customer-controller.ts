@@ -14,6 +14,6 @@ export class CreateCustomerController {
   @GET()
   async execute (request: Request, response: Response): Promise<Response> {
     const customers = await this.findCustomersUseCase.execute({})
-    return response.status(HttpStatusHelper.Created).json(customers)
+    return response.status(HttpStatusHelper.OK).json(customers)
   }
 }

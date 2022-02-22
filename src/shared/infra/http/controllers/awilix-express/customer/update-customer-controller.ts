@@ -17,6 +17,6 @@ export class CreateCustomerController {
     const _id = request.params.id
     const params = { _id }
     const customers = await this.updateEstablishmentUseCase.execute({ params })
-    return response.status(HttpStatusHelper.Created).json(customers)
+    return response.status(HttpStatusHelper.NoContent).json(customers)
   }
 }

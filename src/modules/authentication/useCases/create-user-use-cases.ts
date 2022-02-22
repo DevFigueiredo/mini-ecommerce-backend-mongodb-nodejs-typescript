@@ -13,6 +13,7 @@ export class AuthenticationCreateUseCase implements IUseCase<Partial<Authenticat
   async execute ({ entity }: IExecuteUseCase<Partial<Authentication>, undefined>): Promise<any> {
     try {
       const firebaseUser = await this.firebaseAdmin.createUser({
+        uid: entity.uid,
         email: entity.email,
         password: entity.password,
         displayName: entity.displayName,

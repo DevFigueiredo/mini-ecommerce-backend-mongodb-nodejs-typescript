@@ -4,7 +4,7 @@ import { generateUUID } from '../../../../helpers/generateUUID'
 
 const EstablishmentSchema = new mongoose.Schema(
   {
-  _id: { type: String, default: generateUUID() },
+  _id: { type: String },
   name: { type: String },
   officialName: { type: String },
   socialName: { type: String },

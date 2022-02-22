@@ -16,6 +16,6 @@ export class DeleteEstablishmentController {
   async execute (request: Request, response: Response): Promise<Response> {
     const _id = request.params.id
     const establishments = await this.deleteEstablishmentsUseCase.execute({ params: { _id } })
-    return response.status(HttpStatusHelper.OK).json(establishments)
+    return response.status(HttpStatusHelper.NoContent).json(establishments)
   }
 }

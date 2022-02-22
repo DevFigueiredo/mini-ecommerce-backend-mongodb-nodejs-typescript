@@ -4,7 +4,7 @@ import { generateUUID } from '../../../../helpers/generateUUID'
 
 const CustomerSchema = new mongoose.Schema(
   {
-    _id: { type: String, default: generateUUID() },
+    _id: { type: String },
     firstName: {type: String},
     lastName: {type: String},
     email: {type: String},
