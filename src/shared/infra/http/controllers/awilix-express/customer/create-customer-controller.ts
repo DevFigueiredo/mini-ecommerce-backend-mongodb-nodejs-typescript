@@ -14,7 +14,7 @@ export class CreateCustomerController {
   @POST()
   async execute (request: Request, response: Response): Promise<Response> {
     const entity = request.body as Customer
-    await this.saveCustomersUseCase.execute({ entity })
-    return response.status(HttpStatusHelper.Created).end()
+    const id = await this.saveCustomersUseCase.execute({ entity })
+    return response.status(HttpStatusHelper.Created).json({ id })
   }
 }

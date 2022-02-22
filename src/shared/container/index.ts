@@ -18,6 +18,7 @@ import { UploadImage } from '../helpers/upload-image'
 import { firebaseAdmin } from '../helpers/firebase-admin'
 import { CustormersValidator } from '../validators/customers'
 import MongoDB from '../infra/database/mongodb'
+import { AuthenticationDeleteUseCase } from '../../modules/authentication/useCases/delete-user-use-cases'
 
 export const register = {
   // utils
@@ -44,6 +45,7 @@ export const register = {
 
   authenticationCreateUseCase: asClass(AuthenticationCreateUseCase).singleton(),
   authenticationUpdateUseCase: asClass(AuthenticationUpdateUseCase).singleton(),
+  authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
 
   // repositories
   customerRepository: asClass(CustomerRepository).singleton(),

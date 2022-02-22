@@ -1,6 +1,5 @@
-
 import { Customer } from '../../../shared/domain/customers'
-import { NotFoundError } from '../../../shared/errors/not-found-error'
+import { MissingParamError } from '../../../shared/errors/missing-params-error'
 import { IRepository } from '../../../shared/protocols/repositories/repositories'
 import { IAuthenticationUpdateUseCase } from '../../../shared/protocols/useCases/autentication/update-user-use-cases-interface'
 import { IUpdateCustomerUseCase, IUpdateCustomerUseCaseParams } from '../../../shared/protocols/useCases/customers/update-customer-use-cases'
@@ -18,11 +17,12 @@ export class UpdateCustomersUseCase implements IUpdateCustomerUseCase {
   }
 
   async execute ({ entity, params }: IUpdateCustomerUseCaseParams): Promise<void> {
-    if (!params) {
-      throw new NotFoundError('Params where to update is required')
+    if (!params._id) {
+      throw new MissingParamError('id')
     }
     this.custormersValidator.validateOnUpdate(entity)
     await this.authenticationUpdateUseCase.execute({ entity, params: { uid: params._id } })
+    delete entity.password
     await this.customerRepository.update(entity, { where: params })
   }
 }

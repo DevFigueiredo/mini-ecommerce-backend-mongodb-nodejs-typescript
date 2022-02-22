@@ -115,7 +115,7 @@ class CustormersValidator implements ICustormersValidator {
       rg: Joi.string().max(50).allow('', null).messages({
         'string.max': 'O campo pode conter no máximo 50 caracteres.'
       }),
-      gender: Joi.string().valid('masculino', 'feminino', 'outros').messages({
+      gender: Joi.string().valid('men', 'owman', 'other', '', null).messages({
         'any.only': 'O genero pode aceitar apenas *masculino, feminino ou outros*.'
       }),
       phoneNumber: Joi.string()
