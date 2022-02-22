@@ -1,4 +1,4 @@
-﻿export class Order {
+export class Order {
   _id: string
   orderId: string
   customerId: string

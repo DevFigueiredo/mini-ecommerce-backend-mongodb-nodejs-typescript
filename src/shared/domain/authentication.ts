@@ -1,4 +1,4 @@
-﻿
+
 export class Authentication {
   uid: string
   email: string

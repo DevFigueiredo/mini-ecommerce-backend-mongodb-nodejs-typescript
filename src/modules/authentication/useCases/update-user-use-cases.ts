@@ -1,4 +1,4 @@
-﻿import firebaseAdmin from 'firebase-admin'
+import firebaseAdmin from 'firebase-admin'
 import { Authentication } from '../../../shared/domain/authentication'
 import { InvalidParamError } from '../../../shared/errors/invalid-param-error'
 import { IExecuteUseCase, IUseCase } from '../../../shared/protocols/useCases/use-cases'
