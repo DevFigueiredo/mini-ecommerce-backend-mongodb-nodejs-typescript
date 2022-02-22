@@ -1,38 +1,17 @@
 import firebaseAdmin from 'firebase-admin'
-import { Authentication } from '../../../shared/domain/authentication'
 import { InvalidParamError } from '../../../shared/errors/invalid-param-error'
-import { IExecuteUseCase, IUseCase } from '../../../shared/protocols/useCases/use-cases'
+import { IAuthenticationVerifyTokenParams, IAuthenticationVerifyTokenUseCase } from '../../../shared/protocols/useCases/autentication/verify-token-use-cases-interface'
 
-export class AuthenticationVerifyTokenUseCase implements IUseCase<undefined, string, Authentication> {
+export class AuthenticationVerifyTokenUseCase implements IAuthenticationVerifyTokenUseCase {
   private readonly firebaseAdmin: firebaseAdmin.auth.Auth
 
   constructor ({ firebaseAdmin }) {
     this.firebaseAdmin = firebaseAdmin.auth()
   }
 
-  async execute ({ params }: IExecuteUseCase<undefined, string>): Promise<any> {
+  async execute ({ token }: IAuthenticationVerifyTokenParams): Promise<void> {
     try {
-      const {
-        uid,
-        email,
-        password,
-        displayName,
-        phoneNumber,
-        emailVerified,
-        photoURL,
-        disable
-
-      } = await this.firebaseAdmin.verifyIdToken(params)
-      return {
-        uid,
-        email,
-        password,
-        displayName,
-        phoneNumber,
-        emailVerified,
-        photoURL,
-        disable
-      }
+      await this.firebaseAdmin.verifyIdToken(token)
     } catch (error) {
       if (error.code === 'auth/id-token-expired') {
         throw new InvalidParamError('Expired Token.')

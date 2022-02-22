@@ -1,12 +1,11 @@
 import { DELETE, route } from 'awilix-express'
 import { Request, Response } from 'express'
-import { Establishment } from '../../../../../domain/establishment'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUseCase } from '../../../../../protocols/useCases/use-cases'
+import { IDeleteEstablishmentUseCase } from '../../../../../protocols/useCases/establishment/delete-establishment-use-cases'
 
 @route('/establishment')
 export class DeleteEstablishmentController {
-  private readonly deleteEstablishmentsUseCase: IUseCase<undefined, Partial<Establishment>, Establishment[]>
+  private readonly deleteEstablishmentsUseCase: IDeleteEstablishmentUseCase
   constructor ({ deleteEstablishmentsUseCase }: any) {
     this.deleteEstablishmentsUseCase = deleteEstablishmentsUseCase
   }

@@ -1,12 +1,11 @@
 import { GET, route } from 'awilix-express'
 import { Request, Response } from 'express'
-import { Establishment } from '../../../../../domain/establishment'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUseCase } from '../../../../../protocols/useCases/use-cases'
+import { IFindEstablishmentUseCase } from '../../../../../protocols/useCases/establishment/find-establishment-use-cases'
 
 @route('/establishment')
 export class FindEstablishmentController {
-  private readonly findEstablishmentsUseCase: IUseCase<undefined, Partial<Establishment>, undefined>
+  private readonly findEstablishmentsUseCase: IFindEstablishmentUseCase
   constructor ({ findEstablishmentsUseCase }: any) {
     this.findEstablishmentsUseCase = findEstablishmentsUseCase
   }

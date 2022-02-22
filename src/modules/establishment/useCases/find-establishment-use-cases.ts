@@ -1,14 +1,14 @@
-import { Establishment } from '../../../shared/domain/establishment'
+import { Establishment } from '../../../shared/domain/Establishment'
 import { IRepository } from '../../../shared/protocols/repositories/repositories'
-import { IExecuteUseCase, IUseCase } from '../../../shared/protocols/useCases/use-cases'
+import { FindEstablishmentUseCaseParams, IFindCustomersUseCaseResponse, IFindEstablishmentUseCase } from '../../../shared/protocols/useCases/establishment/find-establishment-use-cases'
 
-export class FindEstablishmentsUseCase implements IUseCase<undefined, Establishment, Establishment[]> {
+export class FindEstablishmentsUseCase implements IFindEstablishmentUseCase {
   private readonly establishmentRepository: IRepository<Establishment>
   constructor ({ establishmentRepository }: any) {
     this.establishmentRepository = establishmentRepository
   }
 
-  async execute ({ params }: IExecuteUseCase<undefined, Establishment>): Promise<Establishment[]> {
+  async execute ({ params }: FindEstablishmentUseCaseParams): Promise<IFindCustomersUseCaseResponse> {
     const establishments = await this.establishmentRepository.find({ where: params })
     return establishments
   }

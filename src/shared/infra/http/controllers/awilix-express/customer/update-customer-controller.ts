@@ -1,12 +1,11 @@
 import { GET, route } from 'awilix-express'
 import { Request, Response } from 'express'
-import { Customer } from '../../../../../domain/customers'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUseCase } from '../../../../../protocols/useCases/use-cases'
+import { IUpdateCustomerUseCase } from '../../../../../protocols/useCases/customers/update-customer-use-cases'
 
 @route('/customer')
 export class CreateCustomerController {
-  private readonly updateEstablishmentUseCase: IUseCase<undefined, Partial<Customer>, Customer[]>
+  private readonly updateEstablishmentUseCase: IUpdateCustomerUseCase
   constructor ({ updateEstablishmentUseCase }: any) {
     this.updateEstablishmentUseCase = updateEstablishmentUseCase
   }

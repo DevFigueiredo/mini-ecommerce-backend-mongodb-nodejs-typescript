@@ -2,11 +2,11 @@ import { POST, route } from 'awilix-express'
 import { Request, Response } from 'express'
 import { Establishment } from '../../../../../domain/establishment'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUseCase } from '../../../../../protocols/useCases/use-cases'
+import { ISaveEstablishmentUseCase } from '../../../../../protocols/useCases/establishment/save-establishment-use-cases'
 
 @route('/establishment')
 export class CreateEstablishmentController {
-  private readonly saveEstablishmentUseCase: IUseCase<Establishment, Partial<Establishment>, void>
+  private readonly saveEstablishmentUseCase: ISaveEstablishmentUseCase
   constructor ({ saveEstablishmentUseCase }: any) {
     this.saveEstablishmentUseCase = saveEstablishmentUseCase
   }

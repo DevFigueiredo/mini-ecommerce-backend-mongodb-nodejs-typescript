@@ -1,12 +1,11 @@
 import { DELETE, route } from 'awilix-express'
 import { Request, Response } from 'express'
-import { Customer } from '../../../../../domain/customers'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUseCase } from '../../../../../protocols/useCases/use-cases'
+import { IDeleteCustomersUseCase } from '../../../../../protocols/useCases/customers/delete-customer-use-cases'
 
 @route('/customer')
 export class DeleteCustomerController {
-  private readonly deleteCustomersUseCase: IUseCase<undefined, Partial<Customer>, Customer[]>
+  private readonly deleteCustomersUseCase: IDeleteCustomersUseCase
   constructor ({ deleteCustomersUseCase }: any) {
     this.deleteCustomersUseCase = deleteCustomersUseCase
   }
