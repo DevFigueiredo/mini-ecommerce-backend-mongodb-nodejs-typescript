@@ -3,7 +3,7 @@ import { MissingParamError } from '../../../shared/errors/missing-params-error'
 import { IRepository } from '../../../shared/protocols/repositories/repositories'
 import { IUpdateProductUseCase, IUpdateProductUseCaseParams } from '../../../shared/protocols/useCases/product/update-product-use-cases'
 
-export class UpdateCustomersUseCase implements IUpdateProductUseCase {
+export class UpdateProductUseCase implements IUpdateProductUseCase {
   private readonly productRepository: IRepository<Product>
 
   constructor ({ productRepository }: any) {

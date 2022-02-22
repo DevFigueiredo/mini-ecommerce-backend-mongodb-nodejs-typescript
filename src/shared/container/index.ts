@@ -21,6 +21,11 @@ import MongoDB from '../infra/database/mongodb'
 import { AuthenticationDeleteUseCase } from '../../modules/authentication/useCases/delete-user-use-cases'
 import { AuthenticationSignEmailAndPasswordUseCase } from '../../modules/authentication/useCases/sign-with-email-and-password-use-cases'
 import { ProductRepository } from '../../modules/product/infra/mongodb/repositories/product-repository-mongodb'
+import { FindProductUseCase } from '../../modules/product/useCases/find-product-use-cases'
+import { FindByIdProductUseCase } from '../../modules/product/useCases/find-by-id-product-use-cases'
+import { DeleteProductUseCase } from '../../modules/product/useCases/delete-product-use-cases'
+import { UpdateProductUseCase } from '../../modules/product/useCases/update-product-use-cases'
+import { SaveProductUseCase } from '../../modules/product/useCases/save-product-use-cases'
 
 export const register = {
   // utils
@@ -44,6 +49,12 @@ export const register = {
   deleteEstablishmentsUseCase: asClass(DeleteEstablishmentsUseCase).singleton(),
   updateEstablishmentUseCase: asClass(UpdateEstablishmentUseCase).singleton(),
   saveEstablishmentUseCase: asClass(SaveEstablishmentUseCase).singleton(),
+
+  findProductUseCase: asClass(FindProductUseCase).singleton(),
+  findByIdProductUseCase: asClass(FindByIdProductUseCase).singleton(),
+  deleteProductUseCase: asClass(DeleteProductUseCase).singleton(),
+  updateProductUseCase: asClass(UpdateProductUseCase).singleton(),
+  saveProductUseCase: asClass(SaveProductUseCase).singleton(),
 
   authenticationCreateUseCase: asClass(AuthenticationCreateUseCase).singleton(),
   authenticationUpdateUseCase: asClass(AuthenticationUpdateUseCase).singleton(),
