@@ -41,7 +41,7 @@ class CustormersValidator implements ICustormersValidator {
         'string.max': 'Requisição inválida. O CPF passado é inválido.',
         'string.empty': 'Requisição inválida. O CPF passado é inválido.'
       }),
-      gender: Joi.string().valid('masculino', 'feminino', 'outros', '', null).messages({
+      gender: Joi.string().valid('men', 'owman', 'other', '', null).messages({
         'any.only': 'O gender pode aceitar apenas *masculino, feminino ou outros*.'
       }),
       birthDate: Joi.date().format('YYYY-MM-DD').allow('', null).messages({

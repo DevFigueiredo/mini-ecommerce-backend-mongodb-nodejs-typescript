@@ -1,27 +1,23 @@
 import { Customer } from '../../../../../shared/domain/customers'
+import { CustomerModel } from '../../../../../shared/infra/database/mongodb/schemas/customer-schema'
 import { Builder } from '../../../../../shared/protocols/repositories/builder'
 import { IRepository } from '../../../../../shared/protocols/repositories/repositories'
 
 export class CustomerRepository implements IRepository<Customer> {
-  private readonly collectionName = 'customers'
-  private readonly db
-
-  constructor ({ db }: any) {
-    this.db = db
-  }
-
   async find (params: Builder<Customer>): Promise<Customer[]> {
-    return []
+    return await CustomerModel.find(params)
   }
 
   async update (entity: Customer, params: Builder<Customer>): Promise<void> {
+    void await CustomerModel.updateOne(params, entity)
   }
 
   async delete (params: Builder<Customer>): Promise<void> {
-
+    void await CustomerModel.deleteOne(params)
   }
 
   async save (entity: Customer): Promise<void> {
-
+    const establishment = new CustomerModel(entity)
+    await establishment.save()
   }
 }

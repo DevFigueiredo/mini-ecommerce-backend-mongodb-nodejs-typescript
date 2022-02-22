@@ -2,7 +2,7 @@
 import { Establishment } from '../../../../domain/Establishment'
 import { generateUUID } from '../../../../helpers/generateUUID'
 
-const EstablishmentSchema = new mongoose.Schema(
+const CustomerSchema = new mongoose.Schema(
   {
     _id: { type: String, default: generateUUID() },
     firstName: {type: String},
@@ -26,4 +26,4 @@ const EstablishmentSchema = new mongoose.Schema(
   { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }, _id: false }
 )
 
-export const EstablishmentModel = mongoose.model<Establishment>('Establishment', EstablishmentSchema)
+export const CustomerModel = mongoose.model<Establishment>('Customer', CustomerSchema)

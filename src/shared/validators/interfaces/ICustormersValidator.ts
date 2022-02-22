@@ -1,6 +1,6 @@
-import { CustomerApp } from "../../domain/CustomerApp";
+import { Customer } from '../../domain/customers'
 
 export interface ICustormersValidator {
-    validateOnSave(customer: CustomerApp): void;
-    validateOnUpdate(customer: CustomerApp): void;
+  validateOnSave: (customer: Customer) => void
+  validateOnUpdate: (customer: Customer) => void
 }

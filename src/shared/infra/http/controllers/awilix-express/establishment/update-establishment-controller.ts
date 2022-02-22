@@ -6,16 +6,16 @@ import { IUseCase } from '../../../../../protocols/useCases/use-cases'
 
 @route('/establishment')
 export class UpdateEstablishmentController {
-  private readonly updateEstablishmentUseCase: IUseCase<undefined, Partial<Establishment>, Establishment[]>
-  constructor ({ updateEstablishmentUseCase }: any) {
-    this.updateEstablishmentUseCase = updateEstablishmentUseCase
+  private readonly updateCustomersUseCase: IUseCase<undefined, Partial<Establishment>, Establishment[]>
+  constructor ({ updateCustomersUseCase }: any) {
+    this.updateCustomersUseCase = updateCustomersUseCase
   }
 
   @route('/:id')
   @PATCH()
   async execute (request: Request, response: Response): Promise<Response> {
     const _id = request.params.id
-    const establishments = await this.updateEstablishmentUseCase.execute({ params: { _id } })
+    const establishments = await this.updateCustomersUseCase.execute({ params: { _id } })
     return response.status(HttpStatusHelper.OK).json(establishments)
   }
 }
