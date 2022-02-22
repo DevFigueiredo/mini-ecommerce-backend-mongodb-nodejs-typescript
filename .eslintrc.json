@@ -1,0 +1,11 @@
+{
+  "extends": "standard-with-typescript",
+  "ignorePatterns": ["src/shared/infra/database/**"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules
+dist
+src/main/docs
+src/shared/infra/http/controllers/grpc/stores/protos

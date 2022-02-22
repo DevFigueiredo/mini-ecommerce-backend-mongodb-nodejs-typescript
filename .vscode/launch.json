@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Debug NodeJS",
+            "request": "launch",
+            "command": "",
+            "cwd": "${workspaceFolder}",
+            "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"]
+        },
+        
+    ]
+}

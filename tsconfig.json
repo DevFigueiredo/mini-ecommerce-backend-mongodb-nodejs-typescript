@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+      "target": "es2017",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "lib": ["ES6", "dom"],
+      "strict": false,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "resolveJsonModule": true,
+      "allowJs": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "typeRoots": ["./node_modules/@types", "./src/@types"]
+}
