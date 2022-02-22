@@ -5,15 +5,15 @@ import { IRepository } from '../../../../../shared/protocols/repositories/reposi
 
 export class ProductRepository implements IRepository<Product> {
   async find (params: Builder<Product>): Promise<Product[]> {
-    return await ProductModel.find(params)
+    return await ProductModel.find(params.where)
   }
 
   async update (entity: Product, params: Builder<Product>): Promise<void> {
-    void await ProductModel.updateOne(params, entity)
+    void await ProductModel.updateOne(params.where, entity)
   }
 
   async delete (params: Builder<Product>): Promise<void> {
-    void await ProductModel.deleteOne(params)
+    void await ProductModel.deleteOne(params.where)
   }
 
   async save (entity: Product): Promise<void> {

@@ -1,14 +1,16 @@
-﻿import * as mongoose from 'mongoose'
-import { Product } from '../../../../domain/product'
+﻿
+import * as mongoose from 'mongoose'
+import { Establishment } from '../../../../domain/Establishment'
+import { generateUUID } from '../../../../helpers/generateUUID'
 
 const ProductSchema = new mongoose.Schema(
   {
-    id: { type: String, unique: true },
-    establishmentId:  { type: String },
-    title:  { type: String },
-    description:  { type: String },
+    _id: { type: String },
+    establishmentId: {type: String},
+    title: {type: String},
+    description: {type: String},
   },
-  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, _id: false }
+  { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }, _id: false }
 )
 
-export const ProductModel = mongoose.model<Product>('Product', ProductSchema)
+export const ProductModel = mongoose.model<Establishment>('Product', ProductSchema)

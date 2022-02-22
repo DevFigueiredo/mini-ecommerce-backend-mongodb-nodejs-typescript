@@ -5,6 +5,8 @@ import { ISaveProductUseCase, ISaveProductUseCaseParams, ISaveProductUseCaseResp
 import { Product } from '../../../shared/domain/product'
 import api from '../../../shared/utils/api'
 import { Establishment } from '../../../shared/domain/Establishment'
+import { NotFoundError } from '../../../shared/errors/not-found-error'
+import { HttpStatusHelper } from '../../../shared/enums/http-status-helper'
 
 export class SaveProductUseCase implements ISaveProductUseCase {
   private readonly productRepository: IRepository<Product>
@@ -21,8 +23,12 @@ export class SaveProductUseCase implements ISaveProductUseCase {
   }
 
   private async getEstablishment (establishmentId: string): Promise<Establishment> {
-    console.log(`/establishment/${establishmentId}`)
-    const { data: establishment } = await api.get(`/establishment/${establishmentId}`)
-    return establishment
+    try {
+      const { data: establishment } = await api.get(`/establishment/${establishmentId}`)
+      return establishment
+    } catch (error) {
+      if (error.response.status === HttpStatusHelper.NotFound) throw new NotFoundError('Establishment not found')
+      throw error
+    }
   }
 }
