@@ -3,8 +3,7 @@ import { Product } from '../../../../domain/product'
 
 const ProductSchema = new mongoose.Schema(
   {
-    id: { type: String },
-    productId: { type: String },
+    id: { type: String, unique: true },
     establishmentId:  { type: String },
     title:  { type: String },
     description:  { type: String },

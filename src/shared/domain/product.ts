@@ -1,6 +1,5 @@
 export class Product {
-  id!: string
-  productId!: string
+  _id!: string
   establishmentId!: string
   title!: string
   description!: string

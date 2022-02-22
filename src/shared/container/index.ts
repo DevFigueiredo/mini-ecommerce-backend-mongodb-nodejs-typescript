@@ -20,6 +20,7 @@ import { CustormersValidator } from '../validators/customers'
 import MongoDB from '../infra/database/mongodb'
 import { AuthenticationDeleteUseCase } from '../../modules/authentication/useCases/delete-user-use-cases'
 import { AuthenticationSignEmailAndPasswordUseCase } from '../../modules/authentication/useCases/sign-with-email-and-password-use-cases'
+import { ProductRepository } from '../../modules/product/infra/mongodb/repositories/product-repository-mongodb'
 
 export const register = {
   // utils
@@ -52,6 +53,7 @@ export const register = {
   // repositories
   customerRepository: asClass(CustomerRepository).singleton(),
   establishmentRepository: asClass(EstablishmentRepository).singleton(),
+  productRepository: asClass(ProductRepository).singleton(),
 
   // helpers
   uploadImage: asClass(UploadImage).singleton(),

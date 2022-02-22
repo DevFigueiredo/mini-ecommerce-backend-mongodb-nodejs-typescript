@@ -1,13 +1,13 @@
 import { PATCH, route } from 'awilix-express'
 import { Request, Response } from 'express'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IUpdateProductUseCase } from '../../../../../protocols/useCases/product/update-product-use-cases'
+import { IUpdateCustomerUseCase } from '../../../../../protocols/useCases/customers/update-customer-use-cases'
 
-@route('/product')
-export class CreateProductController {
-  private readonly updateProductUseCase: IUpdateProductUseCase
-  constructor ({ updateProductUseCase }: any) {
-    this.updateProductUseCase = updateProductUseCase
+@route('/customer')
+export class CreateCustomerController {
+  private readonly updateCustomersUseCase: IUpdateCustomerUseCase
+  constructor ({ updateCustomersUseCase }: any) {
+    this.updateCustomersUseCase = updateCustomersUseCase
   }
 
   @route('/:id')
@@ -16,7 +16,7 @@ export class CreateProductController {
     const _id = request.params.id
     const params = { _id }
     const entity = request.body
-    await this.updateProductUseCase.execute({ params, entity })
+    await this.updateCustomersUseCase.execute({ params, entity })
     return response.status(HttpStatusHelper.NoContent).end()
   }
 }
