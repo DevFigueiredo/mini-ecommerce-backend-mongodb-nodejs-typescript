@@ -19,6 +19,7 @@ import { firebaseAdmin } from '../helpers/firebase-admin'
 import { CustormersValidator } from '../validators/customers'
 import MongoDB from '../infra/database/mongodb'
 import { AuthenticationDeleteUseCase } from '../../modules/authentication/useCases/delete-user-use-cases'
+import { AuthenticationSignEmailAndPasswordUseCase } from '../../modules/authentication/useCases/sign-with-email-and-password-use-cases'
 
 export const register = {
   // utils
@@ -46,6 +47,7 @@ export const register = {
   authenticationCreateUseCase: asClass(AuthenticationCreateUseCase).singleton(),
   authenticationUpdateUseCase: asClass(AuthenticationUpdateUseCase).singleton(),
   authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
+  authenticationSignEmailAndPasswordUseCase: asClass(AuthenticationSignEmailAndPasswordUseCase).singleton(),
 
   // repositories
   customerRepository: asClass(CustomerRepository).singleton(),
