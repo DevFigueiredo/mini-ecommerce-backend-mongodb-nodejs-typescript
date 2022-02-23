@@ -1,6 +1,7 @@
 import { Establishment } from '../../../shared/domain/Establishment'
 import { Product } from '../../../shared/domain/product'
 import { HttpStatusHelper } from '../../../shared/enums/http-status-helper'
+import { OrderStatus } from '../../../shared/enums/order-status-enum'
 import { NotFoundError } from '../../../shared/errors/not-found-error'
 import { IOrderRepository } from '../../../shared/protocols/repositories/order/order-repository-mongodb-interface'
 import { IAddProductOrderUseCase, IAddProductOrderUseCaseParams } from '../../../shared/protocols/useCases/order/add-product-order-use-cases-interface'
@@ -13,9 +14,10 @@ export class AddProductOrderUseCase implements IAddProductOrderUseCase {
   }
 
   async execute ({ entity, params }: IAddProductOrderUseCaseParams): Promise<void> {
-    console.log(entity)
     const { description, _id: productId, establishmentId, title, price } = await this.getProduct(entity.productId)
     const { name: establishmentName } = await this.getEstablishment(establishmentId)
+
+    await this.orderRepository.removeProduct({ where: { customerId: params.customerId, productId: entity.productId, status: OrderStatus.Bag } })
     await this.orderRepository.addProduct({ description, title, establishmentId, quantity: entity.quantity, productId, price, establishmentName }, { where: { ...params } })
   }
 

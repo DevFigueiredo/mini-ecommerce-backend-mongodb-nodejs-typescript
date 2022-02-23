@@ -1,4 +1,4 @@
-import { before, POST, route } from 'awilix-express'
+import { before, PATCH, route } from 'awilix-express'
 import { Request, Response } from 'express'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
 import { IFlushOrderUseCase } from '../../../../../protocols/useCases/order/flush-order-use-cases-interface'
@@ -11,7 +11,7 @@ export class ListOrderController {
     this.flushOrderUseCase = flushOrderUseCase
   }
 
-  @POST()
+  @PATCH()
   @route('/flush')
   @before([ensureAuthenticatedMiddleware])
   async execute (request: Request, response: Response): Promise<Response> {

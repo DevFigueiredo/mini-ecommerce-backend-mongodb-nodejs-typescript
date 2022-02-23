@@ -7,7 +7,7 @@ import { IOrderRepository, IOrderRepositoryAddProductsParam, IOrderRepositoryFlu
 export class OrderRepository implements IOrderRepository {
   async addProduct (entity: OrderItems, params: IOrderRepositoryAddProductsParam): Promise<void> {
     void await OrderModel.findOneAndUpdate(params.where, {
-      $push: {
+      $addToSet: {
         items: entity
       }
     }, { upsert: true })
