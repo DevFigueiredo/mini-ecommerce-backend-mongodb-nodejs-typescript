@@ -1,4 +1,5 @@
 import { Order } from '../../../shared/domain/order'
+import { NotFoundError } from '../../../shared/errors/not-found-error'
 import { IOrderRepository } from '../../../shared/protocols/repositories/order/order-repository-mongodb-interface'
 import { IListOrderUseCase, IListOrderUseCaseParams, IListOrderUseCaseResponse } from '../../../shared/protocols/useCases/order/list-order-use-cases-interface'
 
@@ -10,6 +11,9 @@ export class ListOrderUseCase implements IListOrderUseCase {
 
   async execute ({ params }: IListOrderUseCaseParams): Promise<IListOrderUseCaseResponse> {
     const list = await this.orderRepository.listProducts({ where: { ...params } })
+    if (!list) {
+      throw new NotFoundError()
+    }
     return this.formatResponse(list)
   }
 

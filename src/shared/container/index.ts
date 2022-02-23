@@ -34,6 +34,7 @@ import { CreateOrderUseCase } from '../../modules/order/useCases/create-order-or
 import { ListOrderUseCase } from '../../modules/order/useCases/list-product-order-use-cases'
 import { FlushOrderUseCase } from '../../modules/order/useCases/flush-order-order-use-cases'
 import { RemoveProductOrderUseCase } from '../../modules/order/useCases/remove-product-order-order-use-cases'
+import { UpdateOrderUseCase } from '../../modules/order/useCases/update-order-order-use-cases'
 
 export const register = {
   // utils
@@ -64,8 +65,9 @@ export const register = {
   deleteProductUseCase: asClass(DeleteProductUseCase).singleton(),
   updateProductUseCase: asClass(UpdateProductUseCase).singleton(),
   saveProductUseCase: asClass(SaveProductUseCase).singleton(),
-
   createOrderUseCase: asClass(CreateOrderUseCase).singleton(),
+  updateOrderUseCase: asClass(UpdateOrderUseCase).singleton(),
+
   addProductOrderUseCase: asClass(AddProductOrderUseCase).singleton(),
   listOrderUseCase: asClass(ListOrderUseCase).singleton(),
   flushOrderUseCase: asClass(FlushOrderUseCase).singleton(),
