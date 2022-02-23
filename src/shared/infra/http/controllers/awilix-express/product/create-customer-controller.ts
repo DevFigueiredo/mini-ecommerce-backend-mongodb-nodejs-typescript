@@ -1,20 +1,20 @@
 import { POST, route } from 'awilix-express'
 import { Request, Response } from 'express'
-import { Customer } from '../../../../../domain/customers'
+import { Product } from '../../../../../domain/product'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { ISaveCustomersUseCase } from '../../../../../protocols/useCases/customers/create-customer-use-cases'
+import { ISaveProductUseCase } from '../../../../../protocols/useCases/Product/create-Product-use-cases'
 
-@route('/customer')
-export class CreateCustomerController {
-  private readonly saveCustomersUseCase: ISaveCustomersUseCase
-  constructor ({ saveCustomersUseCase }: any) {
-    this.saveCustomersUseCase = saveCustomersUseCase
+@route('/product')
+export class CreateProductController {
+  private readonly saveProductUseCase: ISaveProductUseCase
+  constructor ({ saveProductUseCase }: any) {
+    this.saveProductUseCase = saveProductUseCase
   }
 
   @POST()
   async execute (request: Request, response: Response): Promise<Response> {
-    const entity = request.body as Customer
-    const id = await this.saveCustomersUseCase.execute({ entity })
+    const entity = request.body as Product
+    const id = await this.saveProductUseCase.execute({ entity })
     return response.status(HttpStatusHelper.Created).json({ id })
   }
 }

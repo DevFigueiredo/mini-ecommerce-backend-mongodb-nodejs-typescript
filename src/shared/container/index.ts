@@ -15,7 +15,6 @@ import { CreateEstablishmentController } from '../infra/http/controllers/awilix-
 import { AuthenticationCreateUseCase } from '../../modules/authentication/useCases/create-user-use-cases'
 import { AuthenticationUpdateUseCase } from '../../modules/authentication/useCases/update-user-use-cases'
 import { UploadImage } from '../helpers/upload-image'
-import { firebaseAdmin } from '../helpers/firebase-admin'
 import { CustormersValidator } from '../validators/customers'
 import MongoDB from '../infra/database/mongodb'
 import { AuthenticationDeleteUseCase } from '../../modules/authentication/useCases/delete-user-use-cases'
@@ -26,13 +25,16 @@ import { FindByIdProductUseCase } from '../../modules/product/useCases/find-by-i
 import { DeleteProductUseCase } from '../../modules/product/useCases/delete-product-use-cases'
 import { UpdateProductUseCase } from '../../modules/product/useCases/update-product-use-cases'
 import { SaveProductUseCase } from '../../modules/product/useCases/save-product-use-cases'
+import { auth } from '../../modules/authentication/infra/firebase/firebase-auth'
+import { admin } from '../../modules/authentication/infra/firebase/firebase-admin'
 
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
 
   // auth
-  firebaseAdmin: asValue(firebaseAdmin),
+  firebaseAdmin: asValue(admin),
+  firebaseAuth: asValue(auth),
 
   // controllers
   createEstablishmentController: asClass(CreateEstablishmentController).singleton(),

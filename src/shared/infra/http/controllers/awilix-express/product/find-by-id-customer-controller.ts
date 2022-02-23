@@ -1,13 +1,13 @@
 import { GET, route } from 'awilix-express'
 import { Request, Response } from 'express'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { IFindByIdCustomersUseCase } from '../../../../../protocols/useCases/customers/find-by-id-customer-use-cases'
+import { IFindByIdProductUseCase } from '../../../../../protocols/useCases/product/find-by-id-product-use-cases'
 
-@route('/customer')
-export class CreateCustomerController {
-  private readonly findByIdCustomerUseCase: IFindByIdCustomersUseCase
-  constructor ({ findByIdCustomerUseCase }: any) {
-    this.findByIdCustomerUseCase = findByIdCustomerUseCase
+@route('/product')
+export class CreateProductController {
+  private readonly findByIdProductUseCase: IFindByIdProductUseCase
+  constructor ({ findByIdProductUseCase }: any) {
+    this.findByIdProductUseCase = findByIdProductUseCase
   }
 
   @route('/:id')
@@ -15,7 +15,7 @@ export class CreateCustomerController {
   async execute (request: Request, response: Response): Promise<Response> {
     const _id = request.params.id
     const params = { _id }
-    const customers = await this.findByIdCustomerUseCase.execute({ params })
-    return response.status(HttpStatusHelper.OK).json(customers)
+    const products = await this.findByIdProductUseCase.execute({ params })
+    return response.status(HttpStatusHelper.OK).json(products)
   }
 }

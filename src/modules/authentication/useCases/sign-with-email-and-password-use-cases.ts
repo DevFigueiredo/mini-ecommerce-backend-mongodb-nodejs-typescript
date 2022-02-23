@@ -1,14 +1,17 @@
-import firebaseAdmin from 'firebase-admin'
-import { IAuthenticationSignEmailAndPasswordParams, IAuthenticationSignEmailAndPasswordUseCase } from '../../../shared/protocols/useCases/autentication/sign-with-email-and-password-use-cases-interface'
+import firebase from 'firebase'
+
+import { IAuthenticationSignEmailAndPasswordParams, IAuthenticationSignEmailAndPasswordResponse, IAuthenticationSignEmailAndPasswordUseCase } from '../../../shared/protocols/useCases/autentication/sign-with-email-and-password-use-cases-interface'
 
 export class AuthenticationSignEmailAndPasswordUseCase implements IAuthenticationSignEmailAndPasswordUseCase {
-  private readonly firebaseAdmin: firebaseAdmin.auth.Auth
+  private readonly firebaseAuth: firebase.auth.Auth
 
-  constructor ({ firebaseAdmin }) {
-    this.firebaseAdmin = firebaseAdmin.auth()
+  constructor ({ firebaseAuth }) {
+    this.firebaseAuth = firebaseAuth.auth()
   }
 
-  async execute ({ email, password }: IAuthenticationSignEmailAndPasswordParams): Promise<void> {
-
+  async execute ({ email, password }: IAuthenticationSignEmailAndPasswordParams): Promise<IAuthenticationSignEmailAndPasswordResponse> {
+    const authenticated = await this.firebaseAuth.signInWithEmailAndPassword(email, password)
+    const token = authenticated.user.getIdToken()
+    return token
   }
 }
