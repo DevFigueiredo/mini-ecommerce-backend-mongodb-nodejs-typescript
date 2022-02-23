@@ -5,6 +5,7 @@ export enum HttpStatusHelper {
   Accepted = 202,
   NoContent = 204,
   badRequest = 400,
+  Unauthorized = 401,
   NotFound = 404,
   Forbidden = 403,
   InternalServerError = 500,
