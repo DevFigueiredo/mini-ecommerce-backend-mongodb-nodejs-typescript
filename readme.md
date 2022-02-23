@@ -27,7 +27,9 @@ Criar um mini sistema de ecommerce utilizando bancos não relacionais e também 
 > src/shared/errors: Local onde encontra-se os dominios de erros da aplicação
 > src/shared/helpers: Local onde encontra-se os arquivos que serão utéis para ajudar em manipulações realizadas pelo dominio. Exemplo: Gerar um UUID, Upload de Imagem, Comparação de Campos...
 > src/shared/utils: Local onde encontra-se os arquivos que serão utéis para reutilização no código.
-> src/shared/utils: Local onde encontra-se os arquivos que serão utéis para reutilização no código.
+> src/shared/protocols: Local onde encontra-se as implementações(interfaces) que deverão ser utilizadas pelos modulos
+> src/shared/infra: Local onde encontra-se toda parte que refere-se a infraestrutura compartilhada do projeto. Exemplo: Banco de dados.
+> src/shared/validators:Local onde encontra-se os arquivos que serão utéis para incluir validações de entidades do projeto
 
 ## 💻 Pré-requisitos
 
