@@ -26,7 +26,7 @@ export class AddProductOrderUseCase implements IAddProductOrderUseCase {
       const { data: product } = await api.get(`/product/${productId}`)
       return product
     } catch (error) {
-      if (error.response.status === HttpStatusHelper.NotFound) throw new NotFoundError('Product not found')
+      if (error.response?.status === HttpStatusHelper.NotFound) throw new NotFoundError('Product not found')
       throw error
     }
   }
@@ -36,7 +36,7 @@ export class AddProductOrderUseCase implements IAddProductOrderUseCase {
       const { data: establishment } = await api.get(`/establishment/${establishmentId}`)
       return establishment
     } catch (error) {
-      if (error.response.status === HttpStatusHelper.NotFound) throw new NotFoundError('Establishment not found')
+      if (error.response?.status === HttpStatusHelper.NotFound) throw new NotFoundError('Establishment not found')
       throw error
     }
   }

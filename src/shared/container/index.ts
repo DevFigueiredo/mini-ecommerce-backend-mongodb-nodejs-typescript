@@ -35,10 +35,16 @@ import { ListOrderUseCase } from '../../modules/order/useCases/list-product-orde
 import { FlushOrderUseCase } from '../../modules/order/useCases/flush-order-order-use-cases'
 import { RemoveProductOrderUseCase } from '../../modules/order/useCases/remove-product-order-order-use-cases'
 import { UpdateOrderUseCase } from '../../modules/order/useCases/update-order-order-use-cases'
-
+import api from '../utils/api'
+import sqs from '../utils/sqs'
+import { DeleteQueueUseCase } from '../../modules/queue/delete-queue-use-case'
+import { SendQueueUseCase } from '../../modules/queue/send-queue-use-case'
+import { ReceiveQueueUseCase } from '../../modules/queue/receive-queue-use-case'
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
+  api: asValue(api),
+  sqs: asValue(sqs),
 
   // auth
   firebaseAdmin: asValue(admin),
@@ -78,6 +84,10 @@ export const register = {
   authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
   authenticationVerifyTokenUseCase: asClass(AuthenticationVerifyTokenUseCase).singleton(),
   authenticationSignEmailAndPasswordUseCase: asClass(AuthenticationSignEmailAndPasswordUseCase).singleton(),
+
+  deleteQueueUseCase: asClass(DeleteQueueUseCase).singleton(),
+  sendQueueUseCase: asClass(SendQueueUseCase).singleton(),
+  receiveQueueUseCase: asClass(ReceiveQueueUseCase).singleton(),
 
   // repositories
   customerRepository: asClass(CustomerRepository).singleton(),
