@@ -3,15 +3,17 @@ import { Order } from '../../../../domain/order'
 
 const OrderSchema = new mongoose.Schema(
   {
-    orderId: { type: String, unique: true },
+    _id: { type: String },
     customerId:  { type: String, unique: true },
-    status: {type: String, enum: ["processing", "approved", "declined"], default: "processing"},
-    item: [{
-      productId: { type: String, unique: true },
-      description: { type: String },
-      currency: { type: String },
-      totalValue: { type: Number },
-      blingorderSended: { type: Boolean }
+    status: {type: String, enum: ["bag","processing", "approved", "declined"], default: "bag"},
+    items: [{
+      productId:{ type: String},
+      establishmentId:{ type: String},
+      establishmentName:{ type: String},
+      title:{ type: String},
+      description:{ type: String},
+      quantity:{ type: Number},
+      price:{ type: Number},
     }]
   },
   { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, _id: false }

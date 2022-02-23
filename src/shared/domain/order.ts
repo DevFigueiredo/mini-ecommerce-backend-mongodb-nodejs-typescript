@@ -1,14 +1,11 @@
+import { OrderStatus } from '../enums/order-status-enum'
+import { OrderItems } from './order-items'
+
 export class Order {
   _id: string
-  orderId: string
+  status: OrderStatus
   customerId: string
-  item: Array<{
-    code: string
-    description: string
-    currency: string
-    totalValue: Number
-    blingorderSended: Boolean
-  }>
+  items: OrderItems[]
 
   createdAt: Date
   updatedAt: Date

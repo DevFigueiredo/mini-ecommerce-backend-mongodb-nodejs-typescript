@@ -18,7 +18,8 @@ export async function ensureAuthenticatedMiddleware (
 
     if ((bearer !== 'Bearer') || !token) return response.status(HttpStatusHelper.Unauthorized).json({ error: 'Invalid Token' })
 
-    await authenticationVerifyTokenUseCase.execute({ token: token })
+    const tokenValidate = await authenticationVerifyTokenUseCase.execute({ token: token })
+    request.customerId = tokenValidate.uid
 
     next()
   } catch (error) {

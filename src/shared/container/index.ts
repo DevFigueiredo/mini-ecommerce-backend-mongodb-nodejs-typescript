@@ -28,6 +28,12 @@ import { SaveProductUseCase } from '../../modules/product/useCases/save-product-
 import { auth } from '../../modules/authentication/infra/firebase/firebase-auth'
 import { admin } from '../../modules/authentication/infra/firebase/firebase-admin'
 import { AuthenticationVerifyTokenUseCase } from '../../modules/authentication/useCases/verify-token-use-cases'
+import { OrderRepository } from '../../modules/order/infra/order-repository-mongodb'
+import { AddProductOrderUseCase } from '../../modules/order/useCases/add-product-order-use-cases'
+import { CreateOrderUseCase } from '../../modules/order/useCases/create-order-order-use-cases'
+import { ListOrderUseCase } from '../../modules/order/useCases/list-product-order-use-cases'
+import { FlushOrderUseCase } from '../../modules/order/useCases/flush-order-order-use-cases'
+import { RemoveProductOrderUseCase } from '../../modules/order/useCases/remove-product-order-order-use-cases'
 
 export const register = {
   // utils
@@ -59,6 +65,12 @@ export const register = {
   updateProductUseCase: asClass(UpdateProductUseCase).singleton(),
   saveProductUseCase: asClass(SaveProductUseCase).singleton(),
 
+  createOrderUseCase: asClass(CreateOrderUseCase).singleton(),
+  addProductOrderUseCase: asClass(AddProductOrderUseCase).singleton(),
+  listOrderUseCase: asClass(ListOrderUseCase).singleton(),
+  flushOrderUseCase: asClass(FlushOrderUseCase).singleton(),
+  removeProductOrderUseCase: asClass(RemoveProductOrderUseCase).singleton(),
+
   authenticationCreateUseCase: asClass(AuthenticationCreateUseCase).singleton(),
   authenticationUpdateUseCase: asClass(AuthenticationUpdateUseCase).singleton(),
   authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
@@ -69,6 +81,7 @@ export const register = {
   customerRepository: asClass(CustomerRepository).singleton(),
   establishmentRepository: asClass(EstablishmentRepository).singleton(),
   productRepository: asClass(ProductRepository).singleton(),
+  orderRepository: asClass(OrderRepository).singleton(),
 
   // helpers
   uploadImage: asClass(UploadImage).singleton(),
