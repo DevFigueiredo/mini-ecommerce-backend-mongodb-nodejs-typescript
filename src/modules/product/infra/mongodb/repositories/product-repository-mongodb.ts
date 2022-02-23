@@ -17,7 +17,7 @@ export class ProductRepository implements IRepository<Product> {
   }
 
   async save (entity: Product): Promise<void> {
-    const establishment = new ProductModel(entity)
-    await establishment.save()
+    const product = new ProductModel(entity)
+    await product.save()
   }
 }
