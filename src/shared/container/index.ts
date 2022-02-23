@@ -27,6 +27,7 @@ import { UpdateProductUseCase } from '../../modules/product/useCases/update-prod
 import { SaveProductUseCase } from '../../modules/product/useCases/save-product-use-cases'
 import { auth } from '../../modules/authentication/infra/firebase/firebase-auth'
 import { admin } from '../../modules/authentication/infra/firebase/firebase-admin'
+import { AuthenticationVerifyTokenUseCase } from '../../modules/authentication/useCases/verify-token-use-cases'
 
 export const register = {
   // utils
@@ -61,6 +62,7 @@ export const register = {
   authenticationCreateUseCase: asClass(AuthenticationCreateUseCase).singleton(),
   authenticationUpdateUseCase: asClass(AuthenticationUpdateUseCase).singleton(),
   authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
+  authenticationVerifyTokenUseCase: asClass(AuthenticationVerifyTokenUseCase).singleton(),
   authenticationSignEmailAndPasswordUseCase: asClass(AuthenticationSignEmailAndPasswordUseCase).singleton(),
 
   // repositories

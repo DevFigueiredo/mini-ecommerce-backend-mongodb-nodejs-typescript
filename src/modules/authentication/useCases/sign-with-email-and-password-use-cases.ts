@@ -16,8 +16,9 @@ export class AuthenticationSignEmailAndPasswordUseCase implements IAuthenticatio
     if (!password) throw new MissingParamError('password')
     try {
       const authenticated = await this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      const token = authenticated.user.getIdToken()
-      return token
+      const token = await authenticated.user.getIdToken()
+      const refreshToken = authenticated.user.refreshToken
+      return { token, refreshToken, expiresIn: '1h' }
     } catch (error) {
       throw new Unauthorized('User or password is invalid!')
     }

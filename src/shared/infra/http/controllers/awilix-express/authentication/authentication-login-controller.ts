@@ -15,7 +15,7 @@ export class CreateCustomerController {
   async execute (request: Request, response: Response): Promise<Response> {
     const email = request.body.email
     const password = request.body.password
-    const id = await this.authenticationSignEmailAndPasswordUseCase.execute({ email, password })
-    return response.status(HttpStatusHelper.Created).json({ id })
+    const authenticated = await this.authenticationSignEmailAndPasswordUseCase.execute({ email, password })
+    return response.status(HttpStatusHelper.Created).json(authenticated)
   }
 }

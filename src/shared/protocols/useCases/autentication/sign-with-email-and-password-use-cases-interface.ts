@@ -6,6 +6,6 @@ export interface IAuthenticationSignEmailAndPasswordParams {
   password: string
 }
 
-export type IAuthenticationSignEmailAndPasswordResponse = string
+export interface IAuthenticationSignEmailAndPasswordResponse {token: string, refreshToken: string, expiresIn: string}
 
 export type IAuthenticationSignEmailAndPasswordUseCase = IUseCase<IAuthenticationSignEmailAndPasswordParams, IAuthenticationSignEmailAndPasswordResponse>
