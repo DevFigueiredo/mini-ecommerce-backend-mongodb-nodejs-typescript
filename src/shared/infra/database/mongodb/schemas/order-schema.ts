@@ -5,8 +5,9 @@ const OrderSchema = new mongoose.Schema(
   {
     orderId: { type: String, unique: true },
     customerId:  { type: String, unique: true },
+    status: {type: String, enum: ["processing", "approved", "declined"], default: "processing"},
     item: [{
-      code: { type: String, unique: true },
+      productId: { type: String, unique: true },
       description: { type: String },
       currency: { type: String },
       totalValue: { type: Number },

@@ -3,4 +3,5 @@ export class Product {
   establishmentId!: string
   title!: string
   description!: string
+  price!: number
 }

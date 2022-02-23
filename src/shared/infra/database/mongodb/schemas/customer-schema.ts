@@ -1,4 +1,5 @@
 ﻿import * as mongoose from 'mongoose'
+import { Customer } from '../../../../domain/customers'
 import { Establishment } from '../../../../domain/Establishment'
 import { generateUUID } from '../../../../helpers/generateUUID'
 
@@ -26,4 +27,4 @@ const CustomerSchema = new mongoose.Schema(
   { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }, _id: false }
 )
 
-export const CustomerModel = mongoose.model<Establishment>('Customer', CustomerSchema)
+export const CustomerModel = mongoose.model<Customer>('Customer', CustomerSchema)
