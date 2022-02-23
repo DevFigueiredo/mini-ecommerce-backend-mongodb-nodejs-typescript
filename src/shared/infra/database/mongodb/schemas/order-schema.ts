@@ -16,7 +16,7 @@ const OrderSchema = new mongoose.Schema(
       price:{ type: Number},
     }]
   },
-  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, _id: false }
+  { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }, _id: false }
 )
 
 export const OrderModel = mongoose.model<Order>('Order', OrderSchema)

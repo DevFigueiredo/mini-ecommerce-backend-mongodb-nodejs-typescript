@@ -6,7 +6,7 @@ export class Order {
   status: OrderStatus
   customerId: string
   items: OrderItems[]
-
+  totalPrice?: number
   createdAt: Date
   updatedAt: Date
 }
