@@ -41,6 +41,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts",
+    "build": "tsc --build"
   }
 }
