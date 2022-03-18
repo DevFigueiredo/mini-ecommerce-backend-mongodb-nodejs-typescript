@@ -13,5 +13,6 @@ estabiishmentApp.use('/uploads/images', express.static('uploads/images'))
 
 estabiishmentApp.use(scopePerRequest(container))
 estabiishmentApp.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.ts', { cwd: __dirname }))
+estabiishmentApp.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.js', { cwd: __dirname }))
 estabiishmentApp.use(errorsMiddleware)
 export { estabiishmentApp }
