@@ -24,6 +24,8 @@ jobs:
 
       # - name: Run Tests
       #   run: yarn test --coverage
+      - name: Deploy Function
+        run: gcloud functions deploy ms_ecommerce --runtime nodejs16 --trigger-http --allow-unauthenticated
 
       - name: Run Build
         run: yarn build

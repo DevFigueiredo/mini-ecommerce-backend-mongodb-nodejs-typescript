@@ -1,3 +1,4 @@
-import { estabiishmentApp } from './main/apps/localApp'
+import { app } from './src/main/apps/localApp'
 
-exports.ms_ecommerce = estabiishmentApp
+// HTTP Cloud Function.
+exports.ms_ecommerce = app

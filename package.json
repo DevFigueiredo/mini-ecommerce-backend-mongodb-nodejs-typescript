@@ -1,9 +1,11 @@
 {
-  "name": "nodejs-estrutura-dados-fila-pilha",
+  "name": "mini-ecommerce",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
     "@joi/date": "^2.1.0",
     "@types/axios": "^0.14.0",
     "awilix": "^6.1.0",
@@ -39,9 +41,21 @@
     "lint-staged": "^12.1.7",
     "typescript": "*"
   },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevFigueiredo/mini-ecommerce-backend-mongodb-nodejs-typescript.git"
+  },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "npm run gcp-build",
+    "pretest": "npm run gcp-build",
+    "start": "node ./index.js",
+    "gcp-build": "tsc -p .",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts",
-    "build": "tsc --build"
+    "build": "cp package.json dist/ && cp -r src/keys/ dist/ && tsc --build",
+    "start-cloud": "npx functions-framework --target=ms_ecommerce --env-vars-file envs.yaml ",
+    "deploy": "gcloud functions deploy ms_ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml --allow-unauthenticated "
   }
 }
