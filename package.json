@@ -52,9 +52,9 @@
     "prepare": "npm run gcp-build",
     "pretest": "npm run gcp-build",
     "start": "node ./index.js",
-    "gcp-build": "tsc -p .",
+    "gcp-build": "tsc --build",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts",
-    "build": "cp package.json dist/ && cp -r src/keys/ dist/ && tsc --build",
+    "build": "tsc --build",
     "start-cloud": "npx functions-framework --target=ms_ecommerce --env-vars-file envs.yaml ",
     "deploy": "gcloud functions deploy ms_ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml --allow-unauthenticated "
   }
