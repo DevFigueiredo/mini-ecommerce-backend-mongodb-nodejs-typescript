@@ -1,4 +1,4 @@
-import { Establishment } from '../../../domain/Establishment'
+import { Establishment } from '../../../domain/establishment'
 import { IUseCase } from '../use-cases'
 
 export interface IDeleteEstablishmentUseCaseParams {

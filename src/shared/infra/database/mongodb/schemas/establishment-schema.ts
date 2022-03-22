@@ -1,5 +1,5 @@
 ﻿import * as mongoose from 'mongoose'
-import { Establishment } from '../../../../domain/Establishment'
+import { Establishment } from '../../../../domain/establishment'
 import { generateUUID } from '../../../../helpers/generateUUID'
 
 const EstablishmentSchema = new mongoose.Schema(
