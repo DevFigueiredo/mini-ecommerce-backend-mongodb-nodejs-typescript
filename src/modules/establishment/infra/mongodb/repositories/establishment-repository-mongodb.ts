@@ -1,4 +1,4 @@
-import { Establishment } from '../../../../../shared/domain/Establishment'
+import { Establishment } from '../../../../../shared/domain/establishment'
 import { EstablishmentModel } from '../../../../../shared/infra/database/mongodb/schemas/establishment-schema'
 import { Builder } from '../../../../../shared/protocols/repositories/builder'
 import { IRepository } from '../../../../../shared/protocols/repositories/repositories'

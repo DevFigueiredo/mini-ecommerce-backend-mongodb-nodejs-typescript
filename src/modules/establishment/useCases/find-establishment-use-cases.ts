@@ -1,4 +1,4 @@
-import { Establishment } from '../../../shared/domain/Establishment'
+import { Establishment } from '../../../shared/domain/establishment'
 import { IRepository } from '../../../shared/protocols/repositories/repositories'
 import { FindEstablishmentUseCaseParams, IFindCustomersUseCaseResponse, IFindEstablishmentUseCase } from '../../../shared/protocols/useCases/establishment/find-establishment-use-cases'
 

@@ -1,4 +1,4 @@
-import { Establishment } from '../../../shared/domain/Establishment'
+import { Establishment } from '../../../shared/domain/establishment'
 import { Product } from '../../../shared/domain/product'
 import { HttpStatusHelper } from '../../../shared/enums/http-status-helper'
 import { OrderStatus } from '../../../shared/enums/order-status-enum'

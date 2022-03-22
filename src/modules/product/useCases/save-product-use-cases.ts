@@ -4,7 +4,7 @@ import { generateUUID } from '../../../shared/helpers/generateUUID'
 import { ISaveProductUseCase, ISaveProductUseCaseParams, ISaveProductUseCaseResponse } from '../../../shared/protocols/useCases/product/create-product-use-cases'
 import { Product } from '../../../shared/domain/product'
 import api from '../../../shared/utils/api'
-import { Establishment } from '../../../shared/domain/Establishment'
+import { Establishment } from '../../../shared/domain/establishment'
 import { NotFoundError } from '../../../shared/errors/not-found-error'
 import { HttpStatusHelper } from '../../../shared/enums/http-status-helper'
 

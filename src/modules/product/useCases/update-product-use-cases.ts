@@ -1,4 +1,4 @@
-import { Establishment } from '../../../shared/domain/Establishment'
+import { Establishment } from '../../../shared/domain/establishment'
 import { Product } from '../../../shared/domain/product'
 import { HttpStatusHelper } from '../../../shared/enums/http-status-helper'
 import { MissingParamError } from '../../../shared/errors/missing-params-error'
@@ -27,7 +27,7 @@ export class UpdateProductUseCase implements IUpdateProductUseCase {
       const { data: establishment } = await api.get(`/establishment/${establishmentId}`)
       return establishment
     } catch (error) {
-      if (error.response.status === HttpStatusHelper.NotFound) throw new NotFoundError('Establishment not found')
+      if (error?.response.status === HttpStatusHelper.NotFound) throw new NotFoundError('Establishment not found')
       throw error
     }
   }
