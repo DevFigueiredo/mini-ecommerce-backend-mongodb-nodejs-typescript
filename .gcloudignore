@@ -1,0 +1,15 @@
+.gcloudignore
+
+.git
+.gitignore
+
+.idea/
+
+.vscode/
+
+**/*.ts
+tsconfig.json
+
+yarn.lock
+
+node_modules

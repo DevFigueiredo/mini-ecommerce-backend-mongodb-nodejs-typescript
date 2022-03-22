@@ -5,14 +5,14 @@ import { loadControllers, scopePerRequest } from 'awilix-express'
 import { errorsMiddleware } from '../../shared/infra/http/middlewares/errors-middlewares'
 import { container } from '../../shared/container'
 
-const estabiishmentApp = express()
+const app = express()
 
-estabiishmentApp.use(json())
-estabiishmentApp.use(cors())
-estabiishmentApp.use('/uploads/images', express.static('uploads/images'))
+app.use(json())
+app.use(cors())
+app.use('/uploads/images', express.static('uploads/images'))
 
-estabiishmentApp.use(scopePerRequest(container))
-estabiishmentApp.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.ts', { cwd: __dirname }))
-estabiishmentApp.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.js', { cwd: __dirname }))
-estabiishmentApp.use(errorsMiddleware)
-export { estabiishmentApp }
+app.use(scopePerRequest(container))
+app.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.ts', { cwd: __dirname }))
+app.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.js', { cwd: __dirname }))
+app.use(errorsMiddleware)
+export { app }

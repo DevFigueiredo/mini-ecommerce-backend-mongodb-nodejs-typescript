@@ -1,7 +1,12 @@
 {
-  "name": "nodejs-estrutura-dados-fila-pilha",
+  "name": "google-cloud-typescript-functions",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "gcloud functions deploy ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
+  },
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "out/index.js",
   "license": "MIT",
   "dependencies": {
     "@joi/date": "^2.1.0",
@@ -38,10 +43,5 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "typescript": "*"
-  },
-  "scripts": {
-    "prepare": "husky install",
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts",
-    "build": "tsc --build"
   }
 }

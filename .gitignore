@@ -1,5 +1,7 @@
-node_modules
-dist
-coverage
-src/keys
-.env
+.idea/
+
+.vscode/
+
+node_modules/
+
+out/

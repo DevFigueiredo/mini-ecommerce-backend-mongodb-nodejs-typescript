@@ -1,3 +1,3 @@
-import { estabiishmentApp } from './main/apps/localApp'
+import { app } from './main/apps/localApp'
 
-exports.ms_ecommerce = estabiishmentApp
+exports.ecommerce = app

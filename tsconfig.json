@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-      "target": "es2017",
-      "module": "commonjs",
-      "outDir": "./dist",
-      "rootDir": "./src",
-      "lib": ["ES6", "dom"],
-      "strict": false,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "sourceMap": true,
-      "resolveJsonModule": true,
-      "allowJs": true
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "out",
+    "esModuleInterop": true,
+    "rootDir": "./src",
+    "lib": ["ES6", "dom"],
+    "strict": false,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
