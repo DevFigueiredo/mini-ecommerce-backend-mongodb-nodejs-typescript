@@ -1,14 +1,11 @@
 {
-  "name": "google-cloud-typescript-functions",
-  "scripts": {
-    "build": "tsc",
-    "deploy": "gcloud functions deploy ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml",
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
-  },
+  "name": "mini-ecommerce",
   "version": "1.0.0",
-  "main": "out/index.js",
+  "main": "index.js",
+  "private": true,
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
     "@joi/date": "^2.1.0",
     "@types/axios": "^0.14.0",
     "awilix": "^6.1.0",
