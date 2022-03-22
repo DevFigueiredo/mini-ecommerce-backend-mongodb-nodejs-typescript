@@ -4,7 +4,7 @@
     "module": "commonjs",
     "outDir": "out",
     "esModuleInterop": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "lib": ["ES6", "dom"],
     "strict": false,
     "experimentalDecorators": true,

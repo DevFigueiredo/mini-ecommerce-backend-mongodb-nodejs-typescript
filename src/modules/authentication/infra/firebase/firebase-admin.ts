@@ -16,7 +16,7 @@ const serviceAccount = {
 
 const admin = adminFirebase.initializeApp({
   projectId: serviceAccount.project_id,
-  credential: adminFirebase.credential.cert(serviceAccount)
+  credential: adminFirebase.credential.cert(serviceAccount as any)
 })
 
 export { admin }
