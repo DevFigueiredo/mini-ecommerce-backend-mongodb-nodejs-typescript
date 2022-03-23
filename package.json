@@ -4,8 +4,15 @@
   "main": "index.js",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "gcloud functions deploy ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml --source=out",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
+  },
   "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
     "@google-cloud/functions-framework": "^3.0.0",
+    "@google-cloud/logging-winston": "^4.2.1",
     "@joi/date": "^2.1.0",
     "@types/axios": "^0.14.0",
     "awilix": "^6.1.0",
@@ -21,8 +28,10 @@
     "knex": "^0.95.15",
     "luxon": "^2.3.0",
     "mongoose": "^6.2.3",
+    "morgan-body": "^2.6.6",
     "sqlite3": "^5.0.2",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "winston": "^3.6.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

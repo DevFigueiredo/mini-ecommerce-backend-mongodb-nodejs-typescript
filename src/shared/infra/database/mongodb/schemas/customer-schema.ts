@@ -1,7 +1,6 @@
 ﻿import * as mongoose from 'mongoose'
 import { Customer } from '../../../../domain/customers'
-import { Establishment } from '../../../../domain/establishment'
-import { generateUUID } from '../../../../helpers/generateUUID'
+
 
 const CustomerSchema = new mongoose.Schema(
   {

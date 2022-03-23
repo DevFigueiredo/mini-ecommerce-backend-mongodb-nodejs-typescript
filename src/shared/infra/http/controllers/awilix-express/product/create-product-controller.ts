@@ -2,7 +2,7 @@ import { POST, route } from 'awilix-express'
 import { Request, Response } from 'express'
 import { Product } from '../../../../../domain/product'
 import { HttpStatusHelper } from '../../../../../enums/http-status-helper'
-import { ISaveProductUseCase } from '../../../../../protocols/useCases/Product/create-Product-use-cases'
+import { ISaveProductUseCase } from '../../../../../protocols/useCases/product/create-product-use-cases'
 
 @route('/product')
 export class CreateProductController {

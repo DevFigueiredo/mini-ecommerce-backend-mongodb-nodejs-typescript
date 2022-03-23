@@ -40,11 +40,13 @@ import sqs from '../utils/sqs'
 import { DeleteQueueUseCase } from '../../modules/queue/delete-queue-use-case'
 import { SendQueueUseCase } from '../../modules/queue/send-queue-use-case'
 import { ReceiveQueueUseCase } from '../../modules/queue/receive-queue-use-case'
+import { Logger } from '../../modules/logger/logger-service'
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
   api: asValue(api),
   sqs: asValue(sqs),
+  logger: asClass(Logger),
 
   // auth
   firebaseAdmin: asValue(admin),
