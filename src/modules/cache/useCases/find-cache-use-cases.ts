@@ -1,4 +1,4 @@
-import { NotFoundError } from 'src/shared/errors/not-found-error'
+import { NotFoundError } from '../../../shared/errors/not-found-error'
 import { IFindCacheUseCase, IFindCacheUseCaseParams } from 'src/shared/protocols/useCases/cache/find-cache-use-case-interface'
 import { Cache } from '../../../shared/domain/cache'
 import { IRepositoryCache } from '../../../shared/protocols/repositories/repositories'

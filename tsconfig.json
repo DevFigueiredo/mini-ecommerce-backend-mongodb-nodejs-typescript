@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
-    "outDir": "./dist",
+    "outDir": "./out",
     "rootDir": "./src",
     "removeComments": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"],
