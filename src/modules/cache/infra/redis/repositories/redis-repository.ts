@@ -1,4 +1,5 @@
-import { Redis } from 'ioredis'
+
+import Redis from 'ioredis'
 import { promisify } from 'util'
 import { IRepositoryCache } from '../../../../../shared/protocols/repositories/repositories'
 

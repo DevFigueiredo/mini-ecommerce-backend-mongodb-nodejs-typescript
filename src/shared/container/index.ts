@@ -43,6 +43,7 @@ import { ReceiveQueueUseCase } from '../../modules/queue/receive-queue-use-case'
 import { Logger } from '../../modules/logger/logger-service'
 import { FindCacheUseCases } from '../../modules/cache/useCases/find-cache-use-cases'
 import { SaveCacheUseCases } from '../../modules/cache/useCases/save-cache-use-cases'
+import { RedisRepository } from 'src/modules/cache/infra/redis/repositories/redis-repository'
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
@@ -101,6 +102,7 @@ export const register = {
   establishmentRepository: asClass(EstablishmentRepository).singleton(),
   productRepository: asClass(ProductRepository).singleton(),
   orderRepository: asClass(OrderRepository).singleton(),
+  redisRepository: asClass(RedisRepository).singleton(),
 
   // helpers
   uploadImage: asClass(UploadImage).singleton(),
