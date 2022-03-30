@@ -1,8 +1,10 @@
 ﻿import Redis from 'ioredis'
-
+import "dotenv/config"
+const host =  process.env.HOST_REDIS
+const port =  Number(process.env.PORT_REDIS)
 const connectRedisDatabase = new Redis({
-    host: "10.122.100.19",
-    port: 6379,
+    host,
+    port
 })
 
 export { connectRedisDatabase }

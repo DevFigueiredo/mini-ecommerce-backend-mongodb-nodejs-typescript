@@ -4,13 +4,13 @@ import cors from 'cors'
 import { loadControllers, scopePerRequest } from 'awilix-express'
 import { errorsMiddleware } from '../../shared/infra/http/middlewares/errors-middlewares'
 import { container } from '../../shared/container'
-// import { morganBodyExpress } from '../../shared/utils/morgan-body-express'
+import { morganBodyExpress } from '../../shared/utils/morgan-body-express'
 
 const app = express()
 
 app.use(json())
 app.use(cors())
-// morganBodyExpress(app)
+morganBodyExpress(app)
 app.use('/uploads/images', express.static('uploads/images'))
 app.use(scopePerRequest(container))
 app.use(loadControllers('./../../shared/infra/http/controllers/awilix-express/**/*.ts', { cwd: __dirname }))
