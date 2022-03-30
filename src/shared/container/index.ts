@@ -41,6 +41,8 @@ import { DeleteQueueUseCase } from '../../modules/queue/delete-queue-use-case'
 import { SendQueueUseCase } from '../../modules/queue/send-queue-use-case'
 import { ReceiveQueueUseCase } from '../../modules/queue/receive-queue-use-case'
 import { Logger } from '../../modules/logger/logger-service'
+import { FindCacheUseCases } from '../../modules/cache/useCases/find-cache-use-cases'
+import { SaveCacheUseCases } from '../../modules/cache/useCases/save-cache-use-cases'
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
@@ -86,6 +88,9 @@ export const register = {
   authenticationDeleteUseCase: asClass(AuthenticationDeleteUseCase).singleton(),
   authenticationVerifyTokenUseCase: asClass(AuthenticationVerifyTokenUseCase).singleton(),
   authenticationSignEmailAndPasswordUseCase: asClass(AuthenticationSignEmailAndPasswordUseCase).singleton(),
+
+  findCacheUseCases: asClass(FindCacheUseCases).singleton(),
+  saveCacheUseCases: asClass(SaveCacheUseCases).singleton(),
 
   deleteQueueUseCase: asClass(DeleteQueueUseCase).singleton(),
   sendQueueUseCase: asClass(SendQueueUseCase).singleton(),

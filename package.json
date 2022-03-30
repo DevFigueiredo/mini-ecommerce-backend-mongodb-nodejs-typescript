@@ -5,7 +5,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build && cp package.json out/ ",
     "deploy": "gcloud functions deploy ecommerce --runtime nodejs16 --trigger-http  --env-vars-file envs.yaml --source=out",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
   },
@@ -24,6 +24,7 @@
     "express": "^4.17.3",
     "firebase": "8.10.0",
     "firebase-admin": "^10.0.2",
+    "ioredis": "^5.0.2",
     "joi": "^17.6.0",
     "knex": "^0.95.15",
     "luxon": "^2.3.0",
