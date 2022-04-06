@@ -1,10 +1,10 @@
 
-import Redis from 'ioredis'
+import { Datastore } from '@google-cloud/datastore'
 import { promisify } from 'util'
 import { IRepositoryCache } from '../../../../../shared/protocols/repositories/repositories'
 
 export class RedisRepository implements IRepositoryCache<string, any> {
-  private readonly dbCache: Redis
+  private readonly dbCache: Datastore
 
   constructor ({ dbCache }: any) {
     this.dbCache = dbCache
@@ -17,7 +17,7 @@ export class RedisRepository implements IRepositoryCache<string, any> {
   }
 
   async save (key: string, value: any): Promise<void> {
-    const syncSetRedis = promisify(this.dbCache.set).bind(this.dbCache)
+    const syncSetRedis = promisify(this.dbCache.key).bind(this.dbCache)
     await syncSetRedis(key, JSON.stringify(value))
   }
 }

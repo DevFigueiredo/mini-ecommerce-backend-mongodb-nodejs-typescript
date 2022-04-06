@@ -44,11 +44,11 @@ import { Logger } from '../../modules/logger/logger-service'
 import { FindCacheUseCases } from '../../modules/cache/useCases/find-cache-use-cases'
 import { SaveCacheUseCases } from '../../modules/cache/useCases/save-cache-use-cases'
 import { RedisRepository } from '../../modules/cache/infra/redis/repositories/redis-repository'
-import { connectRedisDatabase } from '../infra/database/redis'
+import { datastore } from '../infra/database/redis'
 export const register = {
   // utils
   db: asValue(MongoDB.connect(process.env.MONGO_URI)),
-  dbCache: asValue(connectRedisDatabase),
+  dbCache: asValue(datastore),
   api: asValue(api),
   sqs: asValue(sqs),
   logger: asClass(Logger),

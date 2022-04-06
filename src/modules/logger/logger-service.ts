@@ -10,14 +10,14 @@ export class Logger {
       transports: [new winston.transports.Console()]
     }
 
-    Object.assign(winstonLogConfig, {
-      format: winston.format.combine(
-        winston.format.colorize({ all: true }),
-        winston.format.timestamp({ format: 'YYYY/MM/DD HH:mm:ss' }),
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        winston.format.printf(info => `[${info.timestamp}] [${info.level}]: ${info.message}`)
-      )
-    })
+    // Object.assign(winstonLogConfig, {
+    //   format: winston.format.combine(
+    //     winston.format.colorize({ all: true }),
+    //     winston.format.timestamp({ format: 'YYYY/MM/DD HH:mm:ss' }),
+    //     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    //     winston.format.printf(info => `[${info.timestamp}] [${info.level}]: ${info.message}`)
+    //   )
+    // })
 
     winstonLogConfig.transports.push(new LoggingWinston() as any)
 
