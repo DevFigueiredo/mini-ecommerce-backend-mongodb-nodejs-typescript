@@ -6,8 +6,7 @@ export class Logger {
 
   constructor () {
     const loggingWinston = new LoggingWinston()
-    this.logger = console as any
-    winston.createLogger({
+    this.logger = winston.createLogger({
       level: 'debug',
       transports: [
         new winston.transports.Console(),
