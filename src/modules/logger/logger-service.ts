@@ -5,15 +5,23 @@ export class Logger {
   private readonly logger: winston.Logger
 
   constructor () {
-    const loggingWinston = new LoggingWinston()
-    this.logger = winston.createLogger({
+    const winstonLogConfig = {
       level: 'debug',
-      transports: [
-        new winston.transports.Console(),
-        // Add Stackdriver Logging
-        loggingWinston
-      ]
+      transports: [new winston.transports.Console()]
+    }
+
+    Object.assign(winstonLogConfig, {
+      format: winston.format.combine(
+        winston.format.colorize({ all: true }),
+        winston.format.timestamp({ format: 'YYYY/MM/DD HH:mm:ss' }),
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        winston.format.printf(info => `[${info.timestamp}] [${info.level}]: ${info.message}`)
+      )
     })
+
+    winstonLogConfig.transports.push(new LoggingWinston() as any)
+
+    this.logger = winston.createLogger(winstonLogConfig)
   }
 
   debug (message): void {
