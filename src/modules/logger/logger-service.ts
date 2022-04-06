@@ -1,20 +1,20 @@
 import * as winston from 'winston'
 
-// import { LoggingWinston } from '@google-cloud/logging-winston'
+import { LoggingWinston } from '@google-cloud/logging-winston'
 export class Logger {
   private readonly logger: winston.Logger
 
   constructor () {
-    // const loggingWinston = new LoggingWinston()
+    const loggingWinston = new LoggingWinston()
     this.logger = console as any
-    // winston.createLogger({
-    //   level: 'debug',
-    //   transports: [
-    //     new winston.transports.Console(),
-    //     // Add Stackdriver Logging
-    //     loggingWinston
-    //   ]
-    // })
+    winston.createLogger({
+      level: 'debug',
+      transports: [
+        new winston.transports.Console(),
+        // Add Stackdriver Logging
+        loggingWinston
+      ]
+    })
   }
 
   debug (message): void {

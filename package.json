@@ -13,6 +13,7 @@
     "@google-cloud/firestore": "^5.0.2",
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/logging-winston": "^4.2.1",
+    "@google-cloud/redis": "^2.4.0",
     "@joi/date": "^2.1.0",
     "@types/axios": "^0.14.0",
     "awilix": "^6.1.0",
